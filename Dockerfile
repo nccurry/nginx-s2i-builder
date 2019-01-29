@@ -36,16 +36,13 @@ ENV PATH=$HOME/bin:$APP_ROOT/bin:$PATH
 
 COPY ./s2i/ $STI_SCRIPTS_PATH
 
-# In order to drop the root user, we have to make some directories world
-# writeable as OpenShift default security model is to run the container under
-# random UID.
 RUN apk add nginx bash && \
     mkdir -p ${HOME} && \
     adduser -S -u 1001 -G root -h ${HOME} -s /sbin/nologin -g "Default Application User" default && \
-    chown -R 1001:0 ${APP_ROOT} \
-    chown -R 1001:0 /etc/nginx \
+    chown -R 1001:0 ${APP_ROOT} && \
+    chown -R 1001:0 /etc/nginx && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
-    ln -sf /dev/stderr /var/log/nginx/error.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log
 
 USER 1001
 
