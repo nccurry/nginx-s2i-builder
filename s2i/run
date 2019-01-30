@@ -4,6 +4,8 @@ set -e
 
 exec nginx -g "daemon off;"
 
+ls -lah /run
+
 # # Allow debugging the builder image itself, by using:
 # # $ docker run -it nccurry/nginx-s2i-builder --debug
 [ "$1" == "--debug" ] && exec /bin/bash

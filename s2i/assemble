@@ -15,6 +15,5 @@ echo "---> Fix permissions"
 chown -R 1001:0 $APP_ROOT
 find $APP_ROOT -type d -exec chmod 555 {} +
 find $APP_ROOT -type f -exec chmod 444 {} +
-chown -R 1001:0 /etc/nginx
 find /etc/nginx -type d -exec chmod 555 {} +
 find /etc/nginx -type f -exec chmod 444 {} +
