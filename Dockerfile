@@ -46,8 +46,8 @@ RUN apk add nginx bash && \
     chmod 775 /run/nginx && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
-#    find / -type d -name '*nginx*' -exec chown -R 1001:0 {} +
-#    chmod 775 /run && \
+    find / -type d -name '*nginx*' -exec chown -R 1001:0 {} +
+
 USER 1001
 
 WORKDIR ${HOME}
