@@ -41,6 +41,7 @@ RUN apk add nginx bash && \
     adduser -S -u 1001 -G root -h ${HOME} -s /sbin/nologin -g "Default Application User" default && \
     chown -R 1001:0 ${APP_ROOT} && \
     chmod 775 /var/tmp/nginx && \
+    chmod 775 /run && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
     find / -type d -name '*nginx*' -exec chown -R 1001:0 {} +
