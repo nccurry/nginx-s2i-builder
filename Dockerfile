@@ -41,6 +41,8 @@ RUN apk add nginx bash && \
     adduser -S -u 1001 -G root -h ${HOME} -s /sbin/nologin -g "Default Application User" default && \
     chown -R 1001:0 ${APP_ROOT} && \
     chown -R 1001:0 /etc/nginx && \
+    chown -R 10010:0 /var/tmp/nginx && \
+    chown -R 10010:0 /var/lib/nginx && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
