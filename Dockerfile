@@ -43,10 +43,10 @@ RUN apk add nginx bash && \
     chown -R 1001:0 ${APP_ROOT} && \
     chmod 775 /var/tmp/nginx && \
     mkdir -p /run/nginx && \
-    chown -R 1001:0 /run/nginx && \
+    chmod 775 /run/nginx && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
-    find / -type d -name '*nginx*' -exec chown -R 1001:0 {} +
+#    find / -type d -name '*nginx*' -exec chown -R 1001:0 {} +
 #    chmod 775 /run && \
 USER 1001
 
