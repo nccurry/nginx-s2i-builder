@@ -29,7 +29,7 @@ LABEL io.k8s.description="$DESCRIPTION" \
 ENV STI_SCRIPTS_PATH=/usr/libexec/s2i \
     APP_ROOT=/opt/app-root \
     HOME=/opt/app-root/src \
-    NGINX_CONFIGURATION_PATH=/etc/conf.d \
+    NGINX_CONFIGURATION_PATH=/etc/nginx/conf.d \
     NGINX_CONF_PATH=/etc/nginx/nginx.conf
 
 ENV PATH=$HOME/bin:$APP_ROOT/bin:$PATH
