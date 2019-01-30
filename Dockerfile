@@ -40,20 +40,24 @@ RUN apk add nginx bash && \
     mkdir -p ${HOME} && \
     adduser -S -u 1001 -G root -h ${HOME} -s /sbin/nologin -g "Default Application User" default && \
     chown -R 1001:0 ${APP_ROOT} && \
-    chown -R 1001:0 /etc/nginx && \
-    mkdir -p /var/tmp/nginx && \
-    chown -R 1001:0 /var/tmp/nginx && \
-    mkdir -p /var/log/nginx && \
-    ln -sf /dev/stdout /var/log/nginx/access.log && \
-    ln -sf /dev/stderr /var/log/nginx/error.log && \
-    chown -R 1001:0 /var/log/nginx/access.log && \
-    chown -R 1001:0 /var/log/nginx/error.log && \
-    mkdir -p /usr/lib/nginx && \
-    chown -R 1001:0 /usr/lib/nginx && \
-    mkdir -p /usr/share/nginx && \
-    chown -R 1001:0 /usr/share/nginx && \
-    mkdir -p /var/lib/nginx && \
-    chown -R 1001:0 /var/lib/nginx
+    chmod 775 /var/tmp/nginx
+
+
+#    chown -R 1001:0 /etc/nginx && \
+#    mkdir -p /var/tmp/nginx && \
+#
+#    chown -R 1001:0 /var/tmp/nginx && \
+#    mkdir -p /var/log/nginx && \
+#    ln -sf /dev/stdout /var/log/nginx/access.log && \
+#    ln -sf /dev/stderr /var/log/nginx/error.log && \
+#    chown -R 1001:0 /var/log/nginx/access.log && \
+#    chown -R 1001:0 /var/log/nginx/error.log && \
+#    mkdir -p /usr/lib/nginx && \
+#    chown -R 1001:0 /usr/lib/nginx && \
+#    mkdir -p /usr/share/nginx && \
+#    chown -R 1001:0 /usr/share/nginx && \
+#    mkdir -p /var/lib/nginx && \
+#    chown -R 1001:0 /var/lib/nginx
 #    find / -type d -name '*nginx*' -exec chown -R 1001:0 {} +
 
 USER 1001
