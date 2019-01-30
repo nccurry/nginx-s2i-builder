@@ -42,7 +42,7 @@ RUN apk add nginx bash && \
     chown -R 1001:0 ${APP_ROOT} && \
     chmod 775 /var/tmp/nginx && \
     ln -sf /dev/stdout /var/log/nginx/access.log && \
-    ln -sf /dev/stderr /var/log/nginx/error.log
+    ln -sf /dev/stderr /var/log/nginx/error.log && \
     chown -R 1001:0 /etc/nginx/nginx.conf
 #    chown -R 1001:0 /etc/nginx && \
 #    mkdir -p /var/tmp/nginx && \
