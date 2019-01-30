@@ -7,6 +7,8 @@ cp -Rf /tmp/src/. ./
 
 if [ -f ./nginx.conf ]; then
   echo "---> Copying nginx.conf configuration file..."
+  ls -lah /etc/nginx
+  rm -f ./nginx.conf
   cp -f ./nginx.conf "${NGINX_CONF_PATH}"
   rm -f ./nginx.conf
 fi
