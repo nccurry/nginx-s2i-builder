@@ -37,6 +37,7 @@ ENV PATH=$HOME/bin:$APP_ROOT/bin:$PATH
 COPY ./s2i/ $STI_SCRIPTS_PATH
 
 RUN apk add nginx bash && \
+    rm -f /etc/nginx/conf.d/default.conf && \
     mkdir -p ${HOME} && \
     adduser -S -u 1001 -G root -h ${HOME} -s /sbin/nologin -g "Default Application User" default && \
     chown -R 1001:0 ${APP_ROOT} && \
