@@ -7,11 +7,7 @@ cp -Rf /tmp/src/. ./
 
 if [ -f ./nginx.conf ]; then
   echo "---> Copying nginx.conf configuration file..."
-  ls -lah /etc/nginx
-  ls -lah .
   mv -f ./nginx.conf "${NGINX_CONF_PATH}"
-  ls -lah /etc/nginx
-  ls -lah .
 fi
 
 echo "---> Fix permissions"
